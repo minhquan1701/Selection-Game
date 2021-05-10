@@ -4,7 +4,7 @@ import Home from './views/Home';
 import LogoTrans from './assets/logo-trans.png';
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const retreiveLoginStatus = (loginStatus) => {
     setIsLogin(loginStatus);
   }
