@@ -20,9 +20,7 @@ const Login = ({setIsLogin}) => {
 
     if (e.target.nodeName === 'A') {
       setCampus(e.target.innerText)
-    }else{
-      setError("Please choose your campus");
-    };
+    }
   
     };
   
@@ -56,9 +54,9 @@ const Login = ({setIsLogin}) => {
     
     const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(campus);
-    console.log(userName);
-    console.log(email);
+    // console.log(campus);
+    // console.log(userName);
+    // console.log(email);
     let checkEmpty = await isEmtpy(email, userName, campus);
     if (!checkEmpty) {
       try {
