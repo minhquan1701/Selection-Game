@@ -1,29 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import Nav from './components/Nav';
-
+import React, {useState} from 'react';
+import Login from './views/Login';
 import Home from './views/Home';
-import About from './views/About';
-import NotFound from './views/NotFound';
+import LogoTrans from './assets/logo-trans.png';
 
 const App = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const retreiveLoginStatus = (loginStatus) => {
+    setIsLogin(loginStatus);
+  }
   return (
-    <Router>
-      <Nav />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
-    </Router>
-  );
+    <>
+    <div className="fixed z-20 flex items-center top-4 left-4">
+      <img  className="w-16 h-16" src={LogoTrans} alt="" />
+      <span className="font-sans font-bold text-green-500">Who Am I Truly?</span>
+    </div>
+    
+    {isLogin ? <Home></Home> : <Login setIsLogin={(status) =>retreiveLoginStatus(status)}></Login>}
+    </>
+    
+
+  )
+  
 };
 
 export default App;

@@ -1,0 +1,9 @@
+type Users {
+  userName: String!
+  email: String!
+  campus: String!
+}
+
+type Query {
+  allUsers: [Users!]!
+}

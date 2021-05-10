@@ -1,5 +1,160 @@
-@import 'tailwindcss/base';
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@tailwind base;
+@layer base {
+  html,
+  body {
+    background-color: #eff7fd;
+    overflow-x: hidden;
+  }
+}
+@tailwind components;
+@layer components {
+  [type~="text"],
+  [type="email"] {
+    background-color: transparent;
+  }
+  .front-wave {
+    background-image: url("./assets/front-wave.svg");
+    background-size: 200% 100%;
 
-@import 'tailwindcss/components';
+    animation: waving 25s ease-out alternate infinite;
+  }
+  .middle-wave {
+    background: url("./assets/middle-wave.svg");
+    background-size: 200% 100%;
 
-@import 'tailwindcss/utilities';
+    animation: waving 20s ease-out alternate infinite;
+  }
+  .back-wave {
+    background: url("./assets/back-wave.svg");
+    background-size: 200% 100%;
+
+    animation: waving1 15s ease-out alternate infinite;
+    animation-delay: -2s;
+  }
+  .img-hero {
+    animation: floating 3s ease-in-out alternate infinite;
+  }
+  @keyframes waving {
+    0% {
+      background-position-x: -1000px;
+    }
+    100% {
+      background-position-x: 0px;
+    }
+  }
+  @keyframes waving1 {
+    0% {
+      background-position-x: 0;
+    }
+    100% {
+      background-position-x: -1000px;
+    }
+  }
+  @keyframes floating {
+    0% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+  .tinker {
+    bottom: 150%;
+    animation: floating 1s ease-in-out alternate infinite;
+  }
+  .hero-title::after {
+    position: absolute;
+    content: "";
+    background: url("./assets/thuyen.png");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    right: 40px;
+    bottom: 100%;
+  }
+  .loading-container {
+    background: url("./assets/background-2.jpeg") no-repeat;
+    background-size: cover;
+  }
+  .main-game-container {
+    background: url("./assets/background-2.jpeg") no-repeat;
+    background-size: 120% 120%;
+  }
+}
+
+@tailwind utilities;
+
+@layer utilities {
+  @media (max-width: 640px) {
+    .hero-title,
+    .loading-title {
+      @apply text-3xl;
+    }
+
+    .front-wave,
+    .middle-wave,
+    .back-wave {
+      background-size: 150% 100%;
+    }
+    .front-wave {
+      height: 100px;
+    }
+    .middle-wave {
+      height: 150px;
+    }
+    .back-wave {
+      height: 50px;
+    }
+    #progress-bar {
+      @apply text-sm;
+    }
+    #hero-btn,
+    #campus {
+      width: 100%;
+    }
+    .loading-content {
+      @apply gap-12 mb-0;
+    }
+    .selections-container {
+      @apply flex-col w-full;
+    }
+    .selections-container > * {
+      @apply justify-center h-screen;
+    }
+    .peter1,
+    .peter2,
+    .peter3 {
+      height: 50px;
+    }
+    .peter2 {
+      top: 60%;
+    }
+
+    .peter3 {
+      top: 92%;
+    }
+    .card-des,
+    .card-btn {
+      @apply text-sm;
+    }
+
+    @keyframes waving {
+      0% {
+        background-position-x: -100px;
+      }
+      100% {
+        background-position-x: 0px;
+      }
+    }
+    @keyframes waving1 {
+      0% {
+        background-position-x: 0;
+      }
+      100% {
+        background-position-x: -100px;
+      }
+    }
+  }
+}
